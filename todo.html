@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Todo app. Vue JS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="todoapp container">
+            <header class="header row">
+                <div class="col-sm-6 col-sm-offset-3 form-inline">
+                    <h1>todos</h1>
+                    <div class="input-wrapper">
+                        <input type="text"
+                               class="form-control todo-input"
+                               v-model="newTodo"
+                               @keyup.enter="addTodo">
+                        <button class="btn btn-default" @click="addTodo">Add todo</button>
+                    </div>
+                </div>
+            </header>
+            <section class="main row" v-show="todos.length">
+                <ul class="todo-list list-unstyled col-sm-6 col-sm-offset-3">
+                    <li class="todo checkbox"
+                        :class="{ 'bg-success': !todo.completed, 'bg-warning': todo.completed }"
+                        v-for="todo in todos"
+                        :key="todo.id">
+                        <label :class="{ completed: todo.completed }">
+                            <input type="checkbox" v-model="todo.completed"> {{ todo.title }}
+                        </label>
+                        <button class="btn btn-link todo-remove" @click="removeTodo(todo)">Remove todo</button>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

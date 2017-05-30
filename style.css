@@ -1,0 +1,27 @@
+.main {
+    padding: 20px 0;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+.todo-input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.todo {
+    padding: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.todo label {
+    flex-grow: 1;
+}
+
+.completed {
+    text-decoration: line-through;
+}
